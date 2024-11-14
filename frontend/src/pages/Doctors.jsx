@@ -5,7 +5,7 @@ import { AppContext } from "../context/AppContext";
 const Doctors = () => {
   const { speciality } = useParams();
   const navigate = useNavigate();
-  const { doctors } = useContext(AppContext); 
+  const { doctors } = useContext(AppContext);
   const [filteredDoctors, setFilteredDoctors] = useState([]);
 
   useEffect(() => {
@@ -33,13 +33,13 @@ const Doctors = () => {
           <p>Neurologist</p>
           <p>Gastroenterologist</p>
         </div>
-        <div>
+        <div className="w-full grid-cols-auto gap-4 gap-y-6">
           {/* Render filtered doctors */}
           {filteredDoctors.map((item) => (
             <div
-              onClick={() => navigate(`/appointment/${item._id}`)} // Navigate to appointment page
+              onClick={() => navigate(`/appointment/${item._id}`)}
               className="border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-10px] transition-all duration-500"
-              key={item._id} // Use unique id for key
+              key={item._id}
             >
               <img className="bg-blue-50" src={item.image} alt={item.name} />
               <div className="p-4">
